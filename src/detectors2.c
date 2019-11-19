@@ -52,7 +52,7 @@ static int someone_won_diagleft(char **gb, char p)
             if (gb[x][y] == p && gb[x + 4][y + 4] == p && gb[x + 1][y + 1] == p
                 && gb[x + 2][y + 2] == p && gb[x + 3][y + 3] == p &&
                 !(gb[x + 5][y + 5] == p || gb[x - 1][y - 1] == p))
-		return (TRUE);
+                return (TRUE);
     for (int y = 1; y <= 14; y++)
         if (gb[1][y] == p && gb[2][y + 1] == p && gb[3][y + 2] == p &&
             gb[4][y + 3] == p && gb[5][y + 4] == p && gb[6][y + 5] != p)

@@ -11,7 +11,7 @@
 int check_played_xy(data *game)
 {
     if (game->board[game->played_x][game->played_y] != EMP) {
-	my_putstr("Error: this place is already taken\n");
+        my_putstr("Error: this place is already taken\n");
         return (FAILURE);
     }
     return (SUCCESS);

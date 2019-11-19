@@ -47,7 +47,7 @@ static void play(data **game, uchar whose_turn, int i)
             (whose_turn == PLAYER1 ? (*game)->p1 : (*game)->p2);
     else
         (*game)->board[(*game)->played_x][(*game)->played_y] =
-            (whose_turn == PLAYER2 ? (*game)->p1 : (*game)->p2);        
+            (whose_turn == PLAYER2 ? (*game)->p1 : (*game)->p2);
     my_putstr(whose_turn == PLAYER1 ? (*game)->name1 : (*game)->name2);
     my_putstr(" placed a piece on ");
     my_putnbr((*game)->played_x);
@@ -98,27 +98,21 @@ static int choice3(data *game)
         my_putstr(game->name2);
         my_putstr(", which player's piece do you want to place ? (1/2) ");
         while (!played) {
-            if (getline(&entry, &buf, stdin) == END_OF_FILE) {
-                free(entry);
-                return (END_OF_FILE);
-            }
+            if (getline(&entry, &buf, stdin) == END_OF_FILE)
+                return (quit(entry));
             if (my_str_isequal(entry, "1\n") || my_str_isequal(entry, "2\n"))
                 played = my_getnbr(entry);
         }
-        if (user_play(game, PLAYER2, (played == 2 ? 1 : 2)) == END_OF_FILE) {
-            free(entry);
-            return (END_OF_FILE);
-        }
+        if (user_play(game, PLAYER2, (played == 2 ? 1 : 2)) == END_OF_FILE)
+            return (quit(entry));
         played = 0;
     }
     my_putstr("\n\n");
     my_putstr(game->name1);
     my_putstr(", which player's piece do you want to play with ? (1/2)\n");
     for (int playedd = 0; !playedd;) {
-        if (getline(&entry, &buf, stdin) == END_OF_FILE) {
-            free(entry);
-            return (END_OF_FILE);
-        }
+        if (getline(&entry, &buf, stdin) == END_OF_FILE)
+            return (quit(entry));
         if (my_str_isequal(entry, "1\n") || my_str_isequal(entry, "2\n")) {
             if (my_getnbr(entry) == 2)
                 switch_name(&game);
