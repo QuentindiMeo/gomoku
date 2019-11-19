@@ -5,7 +5,7 @@
 <br>
 Welcome to Gomoku!<br>
 <br>
-This is a remake of the Japanese Gomoku game in C. You will play in 1 versus 1.<br>
+This is a remake of the Japanese Gomoku game in C. You will play in 1 versus 1 on a 19x19 grid.<br>
 Long story short, the game is about making a line of five pieces either horizontally, vertically or diagonally.<br>
 Additional rules are applied, you may try "./gomoku --help" to know more about the rules and available options.<br>
 <br>
