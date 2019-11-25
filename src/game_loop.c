@@ -62,7 +62,7 @@ int get_x(data **game)
     (*game)->played_x = 0;
     my_putstr("Line: ");
     while (!(*game)->played_x) {
-        if (getline(&entry, &buff, stdin == ERROR))
+        if (getline(&entry, &buff, stdin) == ERROR)
             return (quit(entry));
         (*game)->played_x = my_getnbr(entry);
         if (!my_int_isinarray(nb, (*game)->played_x, 19))
